@@ -90,7 +90,7 @@ def parse_int(val):
         if len(val) == 0:
             return 0
         else:
-            raise ValueError
+            raise ValueError("Unable to parse: %s" % val)
 
 
 def parse_loan_row(row):
