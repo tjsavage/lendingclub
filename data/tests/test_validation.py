@@ -43,3 +43,15 @@ class ValidationTestCase(unittest.TestCase):
             parsed_row = validation.parse_loan_row(data[0])
 
             self.assertTrue(validation.is_valid_loan(parsed_row))
+
+    def test_parses_date_correctly(self):
+        with open(self.data_filenames[0], 'rb') as csvfile:
+            reader = csv.DictReader(csvfile)
+            data = []
+            for row in reader:
+                data.append(row)
+
+        parsed_row_0 = validation.parse_loan_row(data[0])
+        parsed_row_1 = validation.parse_loan_row(data[1])
+
+        self.assertTrue(parsed_row_0["issue_d"] > parsed_row_1["issue_d"])

@@ -9,7 +9,8 @@ class LoaderTestCase(unittest.TestCase):
         self.data_filenames = [
                 os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv"),
                 os.path.join(os.path.dirname(__file__), "fixtures/loan_data_b.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_c.csv")
+                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_c.csv"),
+                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_large.csv")
             ]
 
     def test_loans_from_csv_raw(self):
@@ -39,6 +40,20 @@ class LoaderTestCase(unittest.TestCase):
 
         self.assertEqual(last_loan["id"], 1075269)
         self.assertEqual(last_loan["policy_code"], 1)
+
+    def test_loan_iter_from_csv(self):
+        count = 0
+        for loan in loader.loan_iter_from_csv(self.data_filenames[0]):
+            count +=1
+
+        self.assertEqual(count, 6)
+
+    def test_loan_iter_from_csv_large(self):
+        count = 0
+        for loan in loader.loan_iter_from_csv(self.data_filenames[3]):
+            count += 1
+
+        self.assertEqual(count, 42535)
 
 if __name__ == "__main__":
     unittest.main()

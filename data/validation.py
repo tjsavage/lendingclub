@@ -1,4 +1,6 @@
 
+import datetime
+
 """ Returns a percent string as a decimal parse_float
 
 Expects a string of the form 'XX.XX%'
@@ -83,6 +85,11 @@ def parse_float(val):
         else:
             raise ValueError
 
+def parse_date(val):
+    if len(val) == 0:
+        return None
+    return datetime.datetime.strptime(val, "%b-%Y")
+
 def parse_int(val):
     try:
         return int(val)
@@ -110,7 +117,7 @@ def parse_loan_row(row):
         'home_ownership': row['home_ownership'],
         'annual_inc': parse_float(row['annual_inc']),
         'is_inc_v': row['is_inc_v'],
-        'issue_d': row['issue_d'],
+        'issue_d': parse_date(row['issue_d']),
         'loan_status': row['loan_status'],
         'pymnt_plan': row['pymnt_plan'],
         'url': row['url'],
@@ -121,7 +128,7 @@ def parse_loan_row(row):
         'addr_state': row['addr_state'],
         'dti': parse_float(row['dti']),
         'delinq_2yrs': parse_int(row['delinq_2yrs']),
-        'earliest_cr_line': row['earliest_cr_line'],
+        'earliest_cr_line': parse_date(row['earliest_cr_line']),
         'fico_range_low': parse_int(row['fico_range_low']),
         'fico_range_high': parse_int(row['fico_range_high']),
         'inq_last_6mths': parse_int(row['inq_last_6mths']),
@@ -142,10 +149,10 @@ def parse_loan_row(row):
         'total_rec_late_fee': parse_float(row['total_rec_late_fee']),
         'recoveries': parse_float(row['recoveries']),
         'collection_recovery_fee': parse_float(row['collection_recovery_fee']),
-        'last_pymnt_d': row['last_pymnt_d'],
+        'last_pymnt_d': parse_date(row['last_pymnt_d']),
         'last_pymnt_amnt': parse_float(row['last_pymnt_amnt']),
-        'next_pymnt_d': row['next_pymnt_d'],
-        'last_credit_pull_d': row['last_credit_pull_d'],
+        'next_pymnt_d': parse_date(row['next_pymnt_d']),
+        'last_credit_pull_d': parse_date(row['last_credit_pull_d']),
         'last_fico_range_high': parse_int(row['last_fico_range_high']),
         'last_fico_range_low': parse_int(row['last_fico_range_low']),
         'collections_12_mths_ex_med': parse_int(row['collections_12_mths_ex_med']),
