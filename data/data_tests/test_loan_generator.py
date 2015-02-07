@@ -4,9 +4,9 @@ import datetime
 
 import test_shared
 
-from .. import loan_generator
-from .. import loader
-from .. import filters
+from data import loan_generator
+from data import loader
+from data import filters
 
 class TestLoanGenerator(unittest.TestCase):
     def setUp(self):

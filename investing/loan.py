@@ -1,5 +1,7 @@
 class Loan:
-    def __init__(self, loan_dict):
-        for(key, val in loan_dict):
-            self[key] = val
-        
+    def __init__(self, loan_dict=None):
+        if loan_dict is None:
+            self.data = []
+        else:
+            self.data = loan_dict
+

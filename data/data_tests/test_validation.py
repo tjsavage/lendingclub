@@ -3,7 +3,7 @@ import tempfile
 import os
 import csv
 
-from .. import validation, loader
+from data import validation, loader
 
 class ValidationTestCase(unittest.TestCase):
     def setUp(self):

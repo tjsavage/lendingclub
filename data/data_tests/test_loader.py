@@ -2,7 +2,7 @@ import unittest
 import tempfile
 import os
 
-from .. import loader
+from data import loader
 
 class LoaderTestCase(unittest.TestCase):
     def setUp(self):

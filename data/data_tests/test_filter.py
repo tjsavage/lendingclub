@@ -2,7 +2,7 @@ import unittest
 
 import test_shared
 
-from .. import filters
+from data import filters
 
 class TestFilter(unittest.TestCase):
     def setUp(self):

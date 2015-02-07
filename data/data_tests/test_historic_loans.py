@@ -1,6 +1,6 @@
 import unittest
 
-from .. import historic_loans
+from data import historic_loans
 
 class HistoricLoansTestCase(unittest.TestCase):
     def setUp(self):
