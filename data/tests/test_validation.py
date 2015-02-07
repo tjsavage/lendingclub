@@ -8,9 +8,9 @@ from .. import validation, loader
 class ValidationTestCase(unittest.TestCase):
     def setUp(self):
         self.data_filenames = [
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_b.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_c.csv")
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_a.csv"),
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_b.csv"),
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_c.csv")
             ]
 
 

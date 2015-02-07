@@ -7,10 +7,10 @@ from .. import loader
 class LoaderTestCase(unittest.TestCase):
     def setUp(self):
         self.data_filenames = [
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_b.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_c.csv"),
-                os.path.join(os.path.dirname(__file__), "fixtures/loan_data_large.csv")
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_a.csv"),
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_b.csv"),
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_c.csv"),
+                os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_large.csv")
             ]
 
     def test_loans_from_csv_raw(self):

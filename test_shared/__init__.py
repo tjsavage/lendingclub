@@ -1,6 +1,6 @@
 import os
 
-from .. import loader
+from data import loader
 
 filename = os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv")
 LOAN_DATA_A = loader.loans_from_csv(filename)

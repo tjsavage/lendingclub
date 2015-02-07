@@ -1,13 +1,12 @@
 import unittest
 
-from test_fixtures import LOAN_DATA_A
-from test_fixtures import get_large_data_iter
+import test_shared
 
 from .. import filters
 
 class TestFilter(unittest.TestCase):
     def setUp(self):
-        self.loans = LOAN_DATA_A
+        self.loans = test_shared.LOAN_DATA_A
 
     def test_check(self):
         f = filters.Filter(lambda l: l["loan_amnt"] < 3000)
@@ -29,7 +28,7 @@ class TestFilter(unittest.TestCase):
     def test_large_filter_speed(self):
         f = filters.Filter(lambda l: l["loan_amnt"] < 3000)
         result = []
-        for l in get_large_data_iter():
+        for l in test_shared.get_large_data_iter():
             if f.check(l):
                 result.append(l)
 

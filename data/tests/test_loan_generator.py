@@ -2,7 +2,7 @@ import unittest
 import os
 import datetime
 
-import test_fixtures
+import test_shared
 
 from .. import loan_generator
 from .. import loader
@@ -10,7 +10,7 @@ from .. import filters
 
 class TestLoanGenerator(unittest.TestCase):
     def setUp(self):
-        filename = os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv")
+        filename = os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_a.csv")
         self.loaded_generator = loader.loan_iter_from_csv(filename)
 
 
@@ -24,7 +24,7 @@ class TestLoanGenerator(unittest.TestCase):
         self.assertEquals(count, 6)
 
     def test_large_iteration(self):
-        lg = loan_generator.LoanGenerator(loan_generator=test_fixtures.get_large_data_iter())
+        lg = loan_generator.LoanGenerator(loan_generator=test_shared.get_large_data_iter())
 
         count = 0
         for l in lg:
@@ -34,7 +34,7 @@ class TestLoanGenerator(unittest.TestCase):
 
 class TestFilteredLoanGenerator(unittest.TestCase):
     def setUp(self):
-        filename = os.path.join(os.path.dirname(__file__), "fixtures/loan_data_a.csv")
+        filename = os.path.join(os.path.dirname(__file__), "../../test_shared/fixtures/loan_data_a.csv")
         self.loaded_generator = loader.loan_iter_from_csv(filename)
 
     def test_apply_amnt_filter(self):
